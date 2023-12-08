@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="container text-dark">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center display-3 my-5">Tareas pendientes</h1>
+        {% comment %}tasks este array viene del backend views.py de la funcion def tasks(request):{% endcomment %}
+        <ul class="list-group">
+          {% for t in tasks %}
+            <li class="list-group-item">
+              {% comment %}t.id id de la base de datos{% endcomment %}
+              <a href="{% url 'task_detail' t.id %}" class="text-decoration-none">
+                <header class="d-flex justify-content-between align-items-center">
+                  {% comment %}Hacemos una condicion que si la tarea es importante que la muestre de otro color, de contrario normal{% endcomment %}
+                  {% if t.importante %}
+                  {% comment %} las tareas importantes van a estar de un color verde {% endcomment %}
+                    <h3 class="fw-bold text-success" >{{ t.titulo }}</h3>
+                  {% else %}
+                    <h3 class="fw-bold text-secondary">{{ t.titulo }}</h3>
+                  {% endif %}
+                  <p>{{ t.usuario.username }}</p>
+                </header>
+                <p>{{ t.descripcion }}</p>
+                <p>{{ t.datecompleted|date:'M j Y:i' }}</p>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </main>
+{% endblock %}

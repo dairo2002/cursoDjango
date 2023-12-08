@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4 mt-5">
+        <h3 class="text-secondary text-center">{{ task.titulo }}</h3>
+        {{ error }}
+        {% comment %}traemos el formulario a la vista, con lo datos{% endcomment %}
+        <div class=" d-flex">
+          <form class="mb-2 flex-row" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-warning">Actualizar</button>
+          </form>
+
+          <form class="mb-2 flex-row" action="{% url 'complete_task' task.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-info">Completado</button>
+          </form>
+
+          <form  action="{% url 'delete_task' task.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

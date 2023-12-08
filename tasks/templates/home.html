@@ -1,0 +1,17 @@
+{# heredamos el html base.html que nos trae la estructura basica de un HTML #}
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body">
+        <h1 class="display-1 text-center">Django app</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed obcaecati repudiandae hic nesciunt harum in dolorem, excepturi quaerat? Non itaque blanditiis sint ut eum sit debitis excepturi officia ea cum omnis consectetur inventore earum quaerat deleniti mollitia a, ipsum voluptate culpa nam quo quibusdam recusandae nobis molestias. Dicta aliquam eos expedita numquam, excepturi illum alias non reiciendis dolorum laborum corrupti. Qui voluptates, consequuntur quod esse quis provident. Omnis asperiores eveniet beatae corporis esse, inventore reprehenderit sequi, aperiam culpa repellendus dolorum eaque, similique laborum cumque est repudiandae ducimus odit labore nulla! Illum quos explicabo reiciendis totam quaerat numquam commodi exercitationem minus?</p>
+    
+        <div class="text-center">
+            <a href="/signin/" class="btn btn-primary">Inciar sesion</a>   
+            <a href="/signup/" class="btn btn-warning">Registrase</a>   
+        </div>
+    </section>
+</main>
+
+{% endblock  %}
